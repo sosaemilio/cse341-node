@@ -1,0 +1,21 @@
+GET http://localhost:3000/contacts/
+
+GET http://localhost:3000/contacts/1
+
+GET http://localhost:3000/contacts/2
+
+GET http://localhost:3000/contacts/3
+
+GET http://localhost:3000/contacts/4
+
+PRODUCTION ROUTES
+
+GET https://emilio-cse341.onrender.com/contacts/
+
+GET https://emilio-cse341.onrender.com/contacts/1
+
+GET https://emilio-cse341.onrender.com/contacts/2
+
+GET https://emilio-cse341.onrender.com/contacts/3
+
+GET https://emilio-cse341.onrender.com/contacts/4
