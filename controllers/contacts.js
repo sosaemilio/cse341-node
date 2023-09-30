@@ -17,16 +17,18 @@ const getContactById = async function (req, res) {
   });
 };
 
-const createContact = async function (req, res) {
-  const body = req.body();
-  mongodb.getDb().db('byui').collection('contacts').insertOne(body, function (err, res) {
-    if (err) throw err;
-    res.status(201);
+const addContact = async function (req, res) {
+  const newContact = JSON.stringify(req.body);
+  console.log(newContact);
+
+  mongodb.getDb().db('byui').collection('contacts').insertOne(newContact, function (err) {
+    if (err) res.status(500).send(err);
+    if (result) res.status(201).json(result);
   });
 }
 
 module.exports = {
   getContacts,
   getContactById,
-  createContact
+  addContact
 };

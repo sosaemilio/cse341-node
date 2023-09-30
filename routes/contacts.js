@@ -2,7 +2,7 @@ const router = require('express').Router();
 const contactController = require('../controllers/contacts');
 
 router.get('/', contactController.getContacts);
-router.post('/', contactController.createContact);
+router.post('/', contactController.addContact);
 
 router.get('/:id', contactController.getContactById);
 
