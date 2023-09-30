@@ -18,13 +18,14 @@ const getContactById = async function (req, res) {
 };
 
 const addContact = async function (req, res) {
-  const newContact = JSON.stringify(req.body);
+  const newContact = req.body;
   console.log(newContact);
 
-  mongodb.getDb().db('byui').collection('contacts').insertOne(newContact, function (err) {
+  const result = mongodb.getDb().db('byui').collection('contacts').insertOne(newContact, function (err) {
     if (err) res.status(500).send(err);
-    if (result) res.status(201).json(result);
   });
+
+  if (result) res.status(201).json(result);
 }
 
 module.exports = {
