@@ -19,17 +19,24 @@ const getContactById = async function (req, res) {
 
 const addContact = async function (req, res) {
   const newContact = req.body;
-  console.log(newContact);
-
-  const result = mongodb.getDb().db('byui').collection('contacts').insertOne(newContact, function (err) {
+  const result = await mongodb.getDb().db('byui').collection('contacts').insertOne(newContact, function (err) {
     if (err) res.status(500).send(err);
   });
 
   if (result) res.status(201).json(result);
 }
 
+const updateContact = async function (req, res) {
+  const contactId = parseInt(req.params.id);
+  const data = req.body;
+  console.log(data);
+  const result = await mongodb.getDb().db('byui').collection('contacts').updateOne({_id : contactId}, {$set : data});
+  if (result) res.status(204).json(result);
+}
+
 module.exports = {
   getContacts,
   getContactById,
-  addContact
+  addContact,
+  updateContact
 };
