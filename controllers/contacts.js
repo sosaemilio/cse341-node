@@ -19,17 +19,29 @@ const getContactById = async function (req, res) {
 };
 
 const addContact = async function (req, res) {
-  /*
-  #swagger.consumes['body'] = {
-    in: 'body',
-    description: 'Some description...',
-    schema: {
-        $name: 'John Doe',
-        $age: 29,
-        about: ''
-    }
-  } 
-  */
+  /* #swagger.parameters['body'] = { 
+      in: 'body', 
+      '@schema': { 
+          "required": ["firstName"], 
+          "properties": { 
+            "firstName": { 
+              "type": "string", 
+            },
+            "lastName": {
+              "type": "string",
+            },
+            "email": { 
+              "type": "string", 
+            },
+            "birthday": {
+              "type": "string",
+            },
+            "favoriteColor": {
+              "type": "string",
+            }
+          }
+      } 
+  } */
 
   const newContact = req.body;
   const result = await mongodb
@@ -44,6 +56,29 @@ const addContact = async function (req, res) {
 };
 
 const updateContact = async function (req, res) {
+  /* #swagger.parameters['body'] = { 
+      in: 'body', 
+      '@schema': { 
+          "required": ["firstName"], 
+          "properties": { 
+            "firstName": { 
+              "type": "string", 
+            },
+            "lastName": {
+              "type": "string",
+            },
+            "email": { 
+              "type": "string", 
+            },
+            "birthday": {
+              "type": "string",
+            },
+            "favoriteColor": {
+              "type": "string",
+            }
+          }
+      } 
+  } */
   const contactId = new ObjectId(req.params.id);
   const data = req.body;
   const result = await mongodb
