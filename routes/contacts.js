@@ -7,7 +7,7 @@ router.get('/', contactController.getContacts);
 // Add Contact
 router.post('/', contactController.addContact);
 
-//Get contact by Id
+// Get contact by Id
 router.get('/:id', contactController.getContactById);
 
 // Update Contact
